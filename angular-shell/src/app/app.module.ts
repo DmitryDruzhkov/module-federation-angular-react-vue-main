@@ -22,11 +22,6 @@ const routes: Routes = [
         (m) => m.ProfileUserComponent
       ),
   },
-  {
-    path: "settings",
-    loadComponent: () =>
-      import("./settings/settings.component").then((m) => m.SettingsComponent),
-  },
 ];
 
 export function initializeApp(): () => void {
@@ -35,11 +30,6 @@ export function initializeApp(): () => void {
       remoteEntry: "http://localhost:3001/remoteEntry.js",
       remoteName: "profile_user",
       exposedModule: "./ProfileReactComponent",
-    });
-    loadRemoteModule({
-      remoteEntry: "http://localhost:3002/remoteEntry.js",
-      remoteName: "settings_user",
-      exposedModule: "./Settings",
     });
   };
 }
