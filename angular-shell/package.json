@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev:ssr": "ng run angular-shell:serve-ssr",
+    "serve:ssr": "node dist/angular-shell/server/main.js",
+    "build:ssr": "ng build && ng run angular-shell:server",
+    "prerender": "ng run angular-shell:prerender"
   },
   "private": true,
   "resolutions": {
@@ -21,7 +25,10 @@
     "@angular/forms": "^17.0.6",
     "@angular/platform-browser": "^17.0.6",
     "@angular/platform-browser-dynamic": "^17.0.6",
+    "@angular/platform-server": "^17.0.6",
     "@angular/router": "^17.0.6",
+    "@angular/ssr": "^17.0.6",
+    "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rxjs": "~7.5.0",
@@ -33,7 +40,9 @@
     "@angular-devkit/build-angular": "^17.0.6",
     "@angular/cli": "^17.0.6",
     "@angular/compiler-cli": "^17.0.6",
+    "@types/express": "^4.17.17",
     "@types/jasmine": "~4.3.0",
+    "@types/node": "^18.18.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.21",
     "jasmine-core": "~4.5.0",

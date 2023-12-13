@@ -3,7 +3,7 @@ import {
   APP_INITIALIZER,
   CUSTOM_ELEMENTS_SCHEMA,
 } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
+import { BrowserModule, provideClientHydration } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
 
 import { loadRemoteModule } from "./utils/federation-utils";
@@ -38,11 +38,12 @@ export function initializeApp(): () => void {
   declarations: [AppComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [
-    {
+    /* {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
       multi: true,
-    },
+    }, */
+    provideClientHydration(),
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA, // Added for custom elements support

@@ -45,7 +45,7 @@ export class ProfileUserComponent {
     this.profileUserService.setNewCurrentUser(user);
   }
 
-  ngAfterViewInit() {
+  async ngAfterViewInit() {
     this.root = createRoot(this.containerRef.nativeElement);
     this.root.render("Loading script...");
     try {
@@ -57,6 +57,15 @@ export class ProfileUserComponent {
           })
         );
       });
+      /* const response = await fetch(`http://localhost:3001`, {
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          method: 'GET'
+      });
+
+      const html = await response.text();
+      console.log(html) */
     } catch (error) {
       console.log("Erorr", error);
     }
